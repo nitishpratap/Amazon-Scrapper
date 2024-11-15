@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon Media Extractor",
+  "version": "1.0",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*.amazon.com/*",
+    "https://*.amazon.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "://.amazon.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
